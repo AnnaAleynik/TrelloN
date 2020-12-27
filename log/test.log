@@ -1,0 +1,269 @@
+  [1m[35m (371.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "TrelloN_test"[0m
+  [1m[35m (2800.7ms)[0m  [1m[35mCREATE DATABASE "TrelloN_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cards" CASCADE[0m
+  [1m[35m (222.9ms)[0m  [1m[35mCREATE TABLE "cards" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "tasks" CASCADE[0m
+  [1m[35m (874.5ms)[0m  [1m[35mCREATE TABLE "tasks" ("id" bigserial primary key, "title" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL, "description" text, "card_id" bigint NOT NULL)[0m
+  [1m[35m (86.2ms)[0m  [1m[35mCREATE  INDEX  "index_tasks_on_card_id" ON "tasks"  ("card_id")[0m
+  [1m[35m (25.7ms)[0m  [1m[35mALTER TABLE "tasks" ADD CONSTRAINT "fk_rails_dd4c2fba16"
+FOREIGN KEY ("card_id")
+  REFERENCES "cards" ("id")
+[0m
+  [1m[35m (115.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (55.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20201107230210)[0m
+  [1m[35m (16.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20201107162720),
+(20201107195903),
+(20201107225230);
+
+[0m
+  [1m[35m (114.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-11-16 13:07:12.157200"], ["updated_at", "2020-11-16 13:07:12.157200"]]
+  [1m[35m (23.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "schema_sha1"], ["value", "c83691dd47758b2f5ea5ecc28b2eb931863a24dd"], ["created_at", "2020-11-16 13:07:12.191335"], ["updated_at", "2020-11-16 13:07:12.191335"]]
+  [1m[35m (20.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (8080.0ms)[0m  [1m[35mCREATE DATABASE "TrelloN_test-2" ENCODING = 'unicode'[0m
+  [1m[35m (8083.2ms)[0m  [1m[35mCREATE DATABASE "TrelloN_test-0" ENCODING = 'unicode'[0m
+  [1m[35m (8082.4ms)[0m  [1m[35mCREATE DATABASE "TrelloN_test-1" ENCODING = 'unicode'[0m
+  [1m[35m (8080.3ms)[0m  [1m[35mCREATE DATABASE "TrelloN_test-3" ENCODING = 'unicode'[0m
+  [1m[35m (22.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCard Create (2.9ms)[0m  [1m[32mINSERT INTO "cards" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "CardForDelete"], ["created_at", "2020-12-18 14:45:29.370780"], ["updated_at", "2020-12-18 14:45:29.370780"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-12-18 17:45:29 +0300
+Processing by HomeController#show as HTML
+  Rendering home/show.html.slim within layouts/cards
+  Rendered home/show.html.slim within layouts/cards (Duration: 9.2ms | Allocations: 10390)
+Completed 500 Internal Server Error in 297ms (ActiveRecord: 0.0ms | Allocations: 36112)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "CardForDelete"], ["created_at", "2020-12-18 14:47:05.649625"], ["updated_at", "2020-12-18 14:47:05.649625"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-12-18 17:47:05 +0300
+Processing by HomeController#show as HTML
+  Rendering home/show.html.slim within layouts/cards
+  Rendered home/show.html.slim within layouts/cards (Duration: 27.1ms | Allocations: 10390)
+  Rendered application/_header.html.slim (Duration: 6.9ms | Allocations: 2467)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/anna/programming/studying/ruby/ruby-course/TrelloN/public/packs-test
+[Webpacker] Hash: 70b46264619b9dbb8bd9
+Version: webpack 4.44.2
+Time: 781ms
+Built at: 18.12.2020 17:47:08
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-4b35c1a1358203495ee3.js    271 KiB  application  [emitted] [immutable]  application
+js/application-4b35c1a1358203495ee3.js.map    264 KiB  application  [emitted] [dev]        application
+                             manifest.json  384 bytes               [emitted]              
+Entrypoint application = js/application-4b35c1a1358203495ee3.js js/application-4b35c1a1358203495ee3.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 898 bytes {application} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 129 hidden modules
+
+Completed 200 OK in 2655ms (Views: 2650.3ms | ActiveRecord: 0.0ms | Allocations: 58240)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:47:08 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 17.6ms | Allocations: 6477)
+  Rendered application/_header.html.slim (Duration: 0.1ms | Allocations: 64)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.0ms | ActiveRecord: 0.3ms | Allocations: 9541)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "CardForDelete"], ["created_at", "2020-12-18 14:48:47.563791"], ["updated_at", "2020-12-18 14:48:47.563791"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-12-18 17:48:47 +0300
+Processing by HomeController#show as HTML
+  Rendering home/show.html.slim within layouts/cards
+  Rendered home/show.html.slim within layouts/cards (Duration: 28.0ms | Allocations: 10388)
+  Rendered application/_header.html.slim (Duration: 8.9ms | Allocations: 2467)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 127ms (Views: 121.5ms | ActiveRecord: 0.0ms | Allocations: 47354)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:48:47 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 18.3ms | Allocations: 6477)
+  Rendered application/_header.html.slim (Duration: 0.1ms | Allocations: 64)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 26.3ms | ActiveRecord: 0.3ms | Allocations: 9540)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "CardForDelete"], ["created_at", "2020-12-18 14:49:16.356163"], ["updated_at", "2020-12-18 14:49:16.356163"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-12-18 17:49:16 +0300
+Processing by HomeController#show as HTML
+  Rendering home/show.html.slim within layouts/cards
+  Rendered home/show.html.slim within layouts/cards (Duration: 6.2ms | Allocations: 10388)
+  Rendered application/_header.html.slim (Duration: 1.9ms | Allocations: 2454)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 87ms (Views: 82.9ms | ActiveRecord: 0.0ms | Allocations: 47843)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:49:16 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.4ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 5.8ms | Allocations: 6476)
+  Rendered application/_header.html.slim (Duration: 0.1ms | Allocations: 64)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.4ms | Allocations: 9539)
+Started DELETE "/cards/4" for 127.0.0.1 at 2020-12-18 17:49:16 +0300
+Processing by CardsController#destroy as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Load (75.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."card_id" = $1[0m  [["card_id", 4]]
+  [1m[36mCard Destroy (35.7ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cards
+Completed 302 Found in 122ms (ActiveRecord: 113.2ms | Allocations: 3694)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:49:16 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.7ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 2.1ms | Allocations: 131)
+  Rendered application/_header.html.slim (Duration: 0.5ms | Allocations: 62)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.7ms | Allocations: 2714)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "CardForDelete"], ["created_at", "2020-12-18 14:51:19.082691"], ["updated_at", "2020-12-18 14:51:19.082691"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-12-18 17:51:19 +0300
+Processing by HomeController#show as HTML
+  Rendering home/show.html.slim within layouts/cards
+  Rendered home/show.html.slim within layouts/cards (Duration: 6.0ms | Allocations: 10390)
+  Rendered application/_header.html.slim (Duration: 2.9ms | Allocations: 2454)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 66ms (Views: 61.5ms | ActiveRecord: 0.0ms | Allocations: 48333)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:51:19 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 7.6ms | Allocations: 6475)
+  Rendered application/_header.html.slim (Duration: 0.2ms | Allocations: 64)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 9538)
+Started DELETE "/cards/5" for 127.0.0.1 at 2020-12-18 17:51:19 +0300
+Processing by CardsController#destroy as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."card_id" = $1[0m  [["card_id", 5]]
+  [1m[36mCard Destroy (0.4ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cards
+Completed 302 Found in 9ms (ActiveRecord: 2.2ms | Allocations: 3694)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:51:19 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 0.6ms | Allocations: 131)
+  Rendered application/_header.html.slim (Duration: 0.1ms | Allocations: 62)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.2ms | Allocations: 2714)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCard Create (0.5ms)[0m  [1m[32mINSERT INTO "cards" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "CardForDelete"], ["created_at", "2020-12-18 14:52:14.495881"], ["updated_at", "2020-12-18 14:52:14.495881"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-12-18 17:52:14 +0300
+Processing by HomeController#show as HTML
+  Rendering home/show.html.slim within layouts/cards
+  Rendered home/show.html.slim within layouts/cards (Duration: 23.2ms | Allocations: 10390)
+  Rendered application/_header.html.slim (Duration: 7.2ms | Allocations: 2467)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 122ms (Views: 116.4ms | ActiveRecord: 0.0ms | Allocations: 48470)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:52:14 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 22.8ms | Allocations: 6475)
+  Rendered application/_header.html.slim (Duration: 0.1ms | Allocations: 64)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 33.4ms | ActiveRecord: 0.3ms | Allocations: 9538)
+Started DELETE "/cards/6" for 127.0.0.1 at 2020-12-18 17:52:14 +0300
+Processing by CardsController#destroy as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."card_id" = $1[0m  [["card_id", 6]]
+  [1m[36mCard Destroy (0.4ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 6]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cards
+Completed 302 Found in 16ms (ActiveRecord: 2.2ms | Allocations: 3696)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:52:14 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 0.6ms | Allocations: 131)
+  Rendered application/_header.html.slim (Duration: 0.1ms | Allocations: 62)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.2ms | Allocations: 2714)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "schema_sha1"]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mCard Create (0.4ms)[0m  [1m[32mINSERT INTO "cards" ("title", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["title", "CardForDelete"], ["created_at", "2020-12-18 14:54:25.859835"], ["updated_at", "2020-12-18 14:54:25.859835"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/" for 127.0.0.1 at 2020-12-18 17:54:25 +0300
+Processing by HomeController#show as HTML
+  Rendering home/show.html.slim within layouts/cards
+  Rendered home/show.html.slim within layouts/cards (Duration: 26.1ms | Allocations: 10390)
+  Rendered application/_header.html.slim (Duration: 7.3ms | Allocations: 2457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 158ms (Views: 152.8ms | ActiveRecord: 0.0ms | Allocations: 48549)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:54:26 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 22.1ms | Allocations: 6476)
+  Rendered application/_header.html.slim (Duration: 0.1ms | Allocations: 64)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 30.3ms | ActiveRecord: 0.3ms | Allocations: 9539)
+Started DELETE "/cards/7" for 127.0.0.1 at 2020-12-18 17:54:26 +0300
+Processing by CardsController#destroy as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCard Load (0.3ms)[0m  [1m[34mSELECT "cards".* FROM "cards" WHERE "cards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."card_id" = $1[0m  [["card_id", 7]]
+  [1m[36mCard Destroy (0.3ms)[0m  [1m[31mDELETE FROM "cards" WHERE "cards"."id" = $1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/cards
+Completed 302 Found in 11ms (ActiveRecord: 1.8ms | Allocations: 3696)
+Started GET "/cards" for 127.0.0.1 at 2020-12-18 17:54:26 +0300
+Processing by CardsController#index as HTML
+  Rendering cards/index.html.slim within layouts/cards
+  [1m[36mCard Load (0.2ms)[0m  [1m[34mSELECT "cards".* FROM "cards"[0m
+  Rendered cards/index.html.slim within layouts/cards (Duration: 0.5ms | Allocations: 131)
+  Rendered application/_header.html.slim (Duration: 0.1ms | Allocations: 62)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.2ms | Allocations: 2714)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m

@@ -1,0 +1,21 @@
+/ .message.message--notice = notice
+/ .message.message--alert = alert
+
+h2
+  | Card:  #{@card.title}
+hr
+
+.cards-item
+  = link_to edit_card_path(@card), class: 'cards-list__icon' do
+    = image_tag 'edit.svg'
+
+  = link_to cards_path, class: 'cards-list__icon' do
+    = image_tag 'back.svg'
+
+  = link_to new_card_task_path(@card), class: 'cards-list__icon' do
+    = image_tag 'new.svg'
+
+ul.tasks-list
+  - @card.tasks.each do |task|
+    li.tasks-list__item
+      = link_to task.title, card_task_path(@card, task)

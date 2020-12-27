@@ -1,0 +1,70 @@
+@import 'variables';
+@import 'mixin';
+
+h2 {
+  .sorter {
+    font-size: 10px;
+    font-weight: normal;
+    cursor: pointer;
+  }
+}
+
+.cards-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  padding: 0;
+
+  &__item {
+    border: 1px solid $carbon;
+    border-radius: 10%;
+    list-style: none;
+    margin: 20px;
+    min-width: 100px;
+    padding: 10px;
+    position: relative;
+  }
+
+  &__icons {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  &__icon {
+    margin: 5px;
+
+    img {
+      width: 15px;
+    }
+  }
+}
+
+.cards-item {
+  &__item {
+    border: 1px solid $carbon;
+    border-radius: 10%;
+    list-style: none;
+    min-width: 100px;
+    padding: 10px;
+    position: relative;
+  }
+
+  &__icons {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  &__icon {
+    margin: 5px;
+
+    img {
+      width: 20px;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

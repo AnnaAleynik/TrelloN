@@ -1,0 +1,53 @@
+@import 'variables';
+@import 'mixin';
+
+body {
+  background-color: $white;
+  color: $black--light;
+  font-family: verdana, arial, helvetica, sans-serif;
+  margin: 0;
+}
+
+body,
+p,
+ol,
+ul,
+td {
+  font-size: 13px;
+  line-height: 18px;
+}
+
+a {
+  color: $carbon;
+
+  &:hover {
+    color: lighten($carbon, 10%);
+    text-decoration: none;
+  }
+}
+
+.field,
+.actions {
+  margin-bottom: 10px;
+}
+
+.message {
+  &:not(:empty) {
+    border: 1px solid;
+    padding: 5px;
+  }
+
+  &--notice {
+    background-color: lighten($green, 50%);
+    color: $green;
+  }
+
+  &--alert {
+    background-color: lighten($red, 50%);
+    color: $red;
+  }
+}
+
+label {
+  display: block;
+}
