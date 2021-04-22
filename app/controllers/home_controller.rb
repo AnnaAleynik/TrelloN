@@ -2,6 +2,5 @@ class HomeController < ApplicationController
   # layout 'home'
   layout 'cards'
 
-  def show
-  end
+  def show; end
 end

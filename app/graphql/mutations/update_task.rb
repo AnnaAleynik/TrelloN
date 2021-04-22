@@ -8,7 +8,7 @@ module Mutations
 
     def resolve(id:, **params)
       # card = Card.find(id) if (Card.find(id).update({title: title}))
-      
+
       Task.find(id).tap do |task|
         task.update(params)
       end

@@ -35,6 +35,5 @@ module Types
     def task(id:)
       Task.find(id)
     end
-    
   end
 end

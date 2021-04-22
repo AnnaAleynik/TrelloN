@@ -7,7 +7,7 @@ class Task < ApplicationRecord
 
   before_save :upcase_title
 
-  private 
+  private
 
   def upcase_title
     self.title = title.upcase

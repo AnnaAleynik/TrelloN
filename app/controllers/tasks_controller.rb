@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   layout 'tasks'
-  
+
   # def index
   #   @tasks = Task.actual
   # end
