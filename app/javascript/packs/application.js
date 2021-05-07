@@ -16,6 +16,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 import SorterCards from 'components/magic';
+import Form from 'components/form';
 
 Array.from(document.querySelectorAll('.js-cards')).forEach(($el) => {
   new SorterCards($el);
