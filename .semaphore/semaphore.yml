@@ -5,22 +5,10 @@ agent:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Bundle
+  - name: Setup
+    dependencies: []
     task:
-      env_vars:
-        - name: DATABASE_URL
-          value: 'postgresql://postgres:@0.0.0.0:5432/myapp_test'
-        - name: RAILS_ENV
-          value: test
       jobs:
-        - name: Test
+        - name: bundle
           commands:
-            - checkout
-            - sem-version ruby 2.6.5
-            - bundle install --deployment --path vendor/bundle
-            - 'bundle exec rake db:setup'
-  - name: 'Block #2'
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands: []
+            - cache store
