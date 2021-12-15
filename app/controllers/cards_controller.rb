@@ -2,7 +2,7 @@ class CardsController < ApplicationController
   layout 'cards'
 
   def index
-    @cards = Card.all
+    @cards = Card.page(params[:page])
   end
 
   def show
