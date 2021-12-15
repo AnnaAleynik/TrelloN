@@ -13,6 +13,7 @@ blocks:
           commands:
             - cache store
   - name: Feature Specs
+    dependencies: []
     task:
       prologue:
         commands:
