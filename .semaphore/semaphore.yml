@@ -18,5 +18,8 @@ blocks:
         commands:
           - sem-service start postgres 12
           - bin/rails db:create db:structure:load
-          - ls spec | grep -v "\(.*_helper\|features\|factories\|helpers\|support\)" | sed 's/^/spec\//' | xargs -n 1 rm -rf
+      jobs:
+        - name: Features
+          commands:
+            - bin/rspec --tag type:feature
           
