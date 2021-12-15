@@ -12,3 +12,11 @@ blocks:
         - name: bundle
           commands:
             - cache store
+  - name: Feature Specs
+    task:
+      prologue:
+        commands:
+          - sem-service start postgres 12
+          - bin/rails db:create db:structure:load
+          - ls spec | grep -v "\(.*_helper\|features\|factories\|helpers\|support\)" | sed 's/^/spec\//' | xargs -n 1 rm -rf
+          
