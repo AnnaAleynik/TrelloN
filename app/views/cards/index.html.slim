@@ -16,3 +16,5 @@
             = image_tag 'delete.svg'
 
   = link_to 'New card', new_card_path, class: 'button'
+
+  = paginate @cards
