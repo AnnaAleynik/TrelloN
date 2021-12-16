@@ -12,3 +12,4 @@ blocks:
         - name: bundle
           commands:
             - cache store
+            - bundle install --deployment --path vendor/bundle
