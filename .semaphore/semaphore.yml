@@ -15,4 +15,3 @@ blocks:
             - cache store
             - sem-version ruby 2.7.1
             - bundle install --deployment --path vendor/bundle
-            - bundle exec rspec
