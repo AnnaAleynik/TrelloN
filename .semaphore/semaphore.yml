@@ -12,15 +12,3 @@ blocks:
         - name: bundle
           commands:
             - cache store
-  - name: Feature Specs
-    dependencies: []
-    task:
-      prologue:
-        commands:
-          - sem-service start postgres 12
-          - bin/rails db:create db:structure:load
-      jobs:
-        - name: Features
-          commands:
-            - bin/rspec --tag type:feature
-          
