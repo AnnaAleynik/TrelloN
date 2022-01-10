@@ -1,0 +1,17 @@
+version: v1.0
+name: Test MyApp
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Setup
+    dependencies: []
+    task:
+      jobs:
+        - name: bundle
+          commands:
+            - checkout
+            - cache store
+            - sem-version ruby 2.7.1
+            - bundle install --deployment --path vendor/bundle
