@@ -14,5 +14,4 @@ blocks:
             - checkout
             - cache store
             - sem-version ruby 2.7.1
-            - yarn install
             - bundle install --deployment --path vendor/bundle
