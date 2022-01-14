@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  layout 'tasks'
+  layout "tasks"
 
   # def index
   #   @tasks = Task.actual
@@ -24,9 +24,9 @@ class TasksController < ApplicationController
     @card = Card.find(params[:card_id])
     @task = Task.new(task_params.merge(card_id: params[:card_id]))
     if @task.save
-      redirect_to card_task_path(params['card_id'], @task)
+      redirect_to card_task_path(params["card_id"], @task)
     else
-      render 'new'
+      render "new"
     end
 
     # @card.find(params[:card_id)
@@ -40,7 +40,7 @@ class TasksController < ApplicationController
     if @task.update(task_params)
       redirect_to card_task_path(params[:card_id], @task)
     else
-      render 'edit'
+      render "edit"
     end
   end
 

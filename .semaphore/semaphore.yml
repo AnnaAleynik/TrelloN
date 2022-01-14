@@ -12,6 +12,8 @@ blocks:
         - name: bundle
           commands:
             - checkout
-            - cache store
             - sem-version ruby 2.7.1
+            - cache restore
             - bundle install --deployment --path vendor/bundle
+            - cache store
+            - bin/quality

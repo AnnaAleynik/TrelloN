@@ -1,5 +1,5 @@
 .js-cards
-  h2 
+  h2
     ' Your cards
     span.sorter.js-sort-asc Sort by title asc
     span.sorter.js-sort-desc.hidden Sort by title desc
@@ -10,9 +10,10 @@
         .cards-list__header
           = link_to card.title, card_path(card)
         .cards-list__icons
-          = link_to edit_card_path(card), class: 'cards-list__icon' do
-            = image_tag 'edit.svg'
-          = link_to card_path(card), method: :delete, data: { confirm: 'Are you sure?' }, id: 'delete-card', class: 'cards-list__icon' do
-            = image_tag 'delete.svg'
+          = link_to edit_card_path(card), class: "cards-list__icon" do
+            = image_tag "edit.svg"
+          = link_to card_path(card), method: :delete, data: { confirm: "Are you sure?" },
+            id: "delete-card", class: "cards-list__icon" do
+            = image_tag "delete.svg"
 
-  = link_to 'New card', new_card_path, class: 'button'
+  = link_to "New card", new_card_path, class: "button"

@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  layout 'cards'
+  layout "cards"
 
   def index
     @cards = Card.all
@@ -22,7 +22,7 @@ class CardsController < ApplicationController
     if @card.save
       redirect_to @card
     else
-      render 'new'
+      render "new"
     end
   end
 
@@ -32,7 +32,7 @@ class CardsController < ApplicationController
     if @card.update(card_params)
       redirect_to @card
     else
-      render 'edit'
+      render "edit"
     end
   end
 
