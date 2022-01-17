@@ -16,6 +16,10 @@ test/version_tmp
 tmp
 log
 
+/public/assets
+/public/packs
+/public/packs-test
+
 # YARD artifacts
 .yardoc
 _yardoc
