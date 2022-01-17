@@ -18,6 +18,6 @@ blocks:
             - yarn install
             - bundle install --deployment --path vendor/bundle
             - cache store
-            - bin rails db:setup
             - bin/quality
+            - bin/rails db:setup
             - bin/rspec
