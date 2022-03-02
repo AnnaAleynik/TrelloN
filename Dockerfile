@@ -9,11 +9,8 @@ RUN apk add --update --no-cache \
 
 WORKDIR /app
 
-COPY Gemfile /app/
-RUN bundle install
-RUN yarn install --check-files
-
 COPY . /app/
+RUN bundle install
 
 FROM ruby:2.7.1-alpine as Final
 
@@ -28,5 +25,6 @@ COPY --from=Builder /usr/local/bundle/ /usr/local/bundle/
 COPY --from=Builder /app/ /app/
 
 WORKDIR /app
+RUN yarn install --check-files
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
