@@ -271,7 +271,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   pry
   puma (~> 4.3)
-  rails (~> 6.0.3, >= 6.0.3.4)
+  rails (= 6.0.4.6)
   rspec-rails
   rubocop
   sass-rails (>= 6)
