@@ -36,6 +36,7 @@ gem "bootsnap", ">= 1.4.2", require: false
 group :development, :test do
   gem "pry"
   gem "rspec-rails"
+  gem "dotenv-rails"
 end
 
 group :development do
