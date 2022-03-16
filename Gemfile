@@ -34,6 +34,7 @@ gem "slim_lint"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
+  gem "factory_bot_rails"
   gem "pry"
   gem "rspec-rails"
 end
@@ -50,9 +51,8 @@ end
 group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
+  gem "simplecov", require: false
   gem "webdrivers"
-  gem 'simplecov', require: false
-  gem 'factory_bot_rails'
 end
 
 gem "graphiql-rails", group: :development

@@ -4,7 +4,7 @@ require "spec_helper"
 require File.expand_path("../config/environment", __dir__)
 require "rspec/rails"
 require "simplecov"
-require 'support/factory_bot'
+require "support/factory_bot"
 
 SimpleCov.start "rails"
 
