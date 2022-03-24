@@ -6,7 +6,7 @@ positions:
   filename: /tmp/positions.yaml
         
 client:
-  url: https://181579:eyJrIjoiZmYwMmU2ZTBjODRmNTg5MWE0ZjU1YmY3ZDAzZTE2MjU4M2RjMTI3ZiIsIm4iOiJUcmVsbG9OIiwiaWQiOjYxNzYwMH0=@logs-prod3.grafana.net/api/prom/push
+  url: https://181579:eyJrIjoiMzBkNmUxMjlhMzM2ZWE2NjZhZDAxNjA5MjA2ZTQ4ZTJjMGM4MWI4NiIsIm4iOiJUcmVsbG9OIiwiaWQiOjYxNzYwMH0=@logs-prod3.grafana.net/api/prom/push
         
 scrape_configs:
 - job_name: system
