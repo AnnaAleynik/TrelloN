@@ -34,10 +34,10 @@ gem "slim_lint"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
+  gem "dotenv-rails"
   gem "factory_bot_rails"
   gem "pry"
   gem "rspec-rails"
-  gem "dotenv-rails"
 end
 
 group :development do
