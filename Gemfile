@@ -34,6 +34,7 @@ gem "slim_lint"
 gem "bootsnap", ">= 1.4.2", require: false
 
 group :development, :test do
+  gem "factory_bot_rails"
   gem "pry"
   gem "rspec-rails"
   gem "dotenv-rails"
@@ -49,10 +50,9 @@ group :development do
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
-  # Easy installation and use of web drivers to run system tests with browsers
+  gem "simplecov", require: false
   gem "webdrivers"
 end
 
